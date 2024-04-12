@@ -28,17 +28,18 @@ Please examine the mint function in the UniswapV2Pair contract. Upon initial liq
 ## Problem 4
 Investigate the minting function in the UniswapV2Pair contract. When depositing tokens (not for the first time), liquidity can only be obtained using a specific formula. What is the intention behind this?
 
-> When liquidity is added to a Uniswap V2 pool after the initial setup, the number of liquidity tokens \( L \) minted for a deposit of tokens \( \Delta x \) and \( \Delta y \) is given by:
+> When liquidity is added to a Uniswap V2 pool after the initial setup, the number of liquidity tokens $$\( L \)$$ minted for a deposit of tokens $$\( \Delta x \)$$ and $$\( \Delta y \)$$ is given by:
+> $$
 \[ L = \min\left(\frac{\Delta x \times T}{x}, \frac{\Delta y \times T}{y}\right) \]
-where:
-- \( T \) is the total supply of liquidity tokens before the deposit.
-- \( x \) and \( y \) are the existing reserves of the two tokens in the pool.
+> $$
+where $$\( T \)$$ is the total supply of liquidity tokens before the deposit, $$\( x \)$$ and $$\( y \)$$ are the existing reserves of the two tokens in the pool.
 
 > This formula ensures that the amount of liquidity tokens minted is proportional to the increase in pool size due to the added liquidity, relative to the existing reserves.
 
 ## Problem 5
 What is a sandwich attack, and how might it impact you when initiating a swap?
 
+> The sandwich attack basically follows the steps as below:
 > 1. Detection: The attacker monitors the mempool for large trade orders on a DEX that are likely to impact the market price of a token pair.
 >
 > 2. Front-Running: Upon detecting a pending transaction that will buy a token and likely increase its price, the attacker places their own buy order for the same token just before the detected transaction in the order of transactions. To ensure their transaction is processed first, the attacker pays a higher gas fee.
