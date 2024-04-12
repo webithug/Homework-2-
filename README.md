@@ -29,9 +29,9 @@ Please examine the mint function in the UniswapV2Pair contract. Upon initial liq
 Investigate the minting function in the UniswapV2Pair contract. When depositing tokens (not for the first time), liquidity can only be obtained using a specific formula. What is the intention behind this?
 
 > When liquidity is added to a Uniswap V2 pool after the initial setup, the number of liquidity tokens $\( L \)$ minted for a deposit of tokens $\( \Delta x \)$ and $\( \Delta y \)$ is given by:
->
-> $$  L = \min\left(\frac{\Delta x \times T}{x}, \frac{\Delta y \times T}{y}\right) * TotalSupply $$
->
+> $$
+>   L = \min\left(\frac{\Delta x \times T}{x}, \frac{\Delta y \times T}{y}\right) * TotalSupply 
+> $$
 > where $\( T \)$ is the total supply of liquidity tokens before the deposit, $\( x \)$ and $\( y \)$ are the existing reserves of the two tokens in the pool.
 
 > This formula ensures that the amount of liquidity tokens minted is proportional to the increase in pool size due to the added liquidity, relative to the existing reserves.
