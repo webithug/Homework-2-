@@ -33,18 +33,21 @@ def dfs(current_token, current_amount, path, visited, liquidity, goal_amount=20)
             output_amount = get_output_amount(current_amount, res1, res2)
             result = dfs(token2, output_amount, path + [token2], visited + [token2], liquidity)
             if result:
+                print(output_amount )
                 return result
         elif token2 == current_token and (token1 not in visited or token1 == "tokenB"):
             output_amount = get_output_amount(current_amount, res2, res1)
             result = dfs(token1, output_amount, path + [token1], visited + [token1], liquidity)
             if result:
+                print(output_amount )
                 return result
     return None
 
 
 # Start DFS from tokenB with an initial amount of 5 units
 result = dfs("tokenB", 5, ["tokenB"], ["tokenB"], liquidity)
-if result:
+
+if result: 
     path, final_amount = result
     print(f"path: {'->'.join(path)}, tokenB balance={final_amount}")
 else:
