@@ -30,7 +30,7 @@ Investigate the minting function in the UniswapV2Pair contract. When depositing 
 
 > When liquidity is added to a Uniswap V2 pool after the initial setup, the number of liquidity tokens $\( L \)$ minted for a deposit of tokens $\( \Delta x \)$ and $\( \Delta y \)$ is given by:
 >
-> $$ \[ L = \min\left(\frac{\Delta x \times T}{x}, \frac{\Delta y \times T}{y}\right) \] $$
+> $$  L = \min\left(\frac{\Delta x \times T}{x}, \frac{\Delta y \times T}{y}\right)  $$
 >
 > where $\( T \)$ is the total supply of liquidity tokens before the deposit, $\( x \)$ and $\( y \)$ are the existing reserves of the two tokens in the pool.
 
